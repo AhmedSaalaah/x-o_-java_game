@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="381.0" prefWidth="506.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="tictoef.FXMLDocumentController">
+    <children>
+      <Button fx:id="b1" layoutX="53.0" layoutY="35.0" mnemonicParsing="false" onAction="#setb1" prefHeight="88.0" prefWidth="107.0" textFill="#3c3737">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Button>
+      <Button fx:id="b4" layoutX="53.0" layoutY="121.0" mnemonicParsing="false" onAction="#setb4" prefHeight="88.0" prefWidth="107.0">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Button>
+      <Button fx:id="b7" layoutX="53.0" layoutY="209.0" mnemonicParsing="false" onAction="#setb7" prefHeight="79.0" prefWidth="107.0">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Button>
+      <Button fx:id="b2" layoutX="161.0" layoutY="35.0" mnemonicParsing="false" onAction="#setb2" prefHeight="88.0" prefWidth="122.0">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Button>
+      <Button fx:id="b5" layoutX="161.0" layoutY="121.0" mnemonicParsing="false" onAction="#setb5" prefHeight="88.0" prefWidth="122.0">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Button>
+      <Button fx:id="b8" layoutX="161.0" layoutY="209.0" mnemonicParsing="false" onAction="#setb8" prefHeight="79.0" prefWidth="122.0">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Button>
+      <Button fx:id="b3" layoutX="283.0" layoutY="33.0" mnemonicParsing="false" onAction="#setb3" prefHeight="96.0" prefWidth="107.0">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Button>
+      <Button fx:id="b6" layoutX="283.0" layoutY="121.0" mnemonicParsing="false" onAction="#setb6" prefHeight="88.0" prefWidth="107.0">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Button>
+      <Button fx:id="b9" layoutX="283.0" layoutY="209.0" mnemonicParsing="false" onAction="#setb9" onDragExited="#setb8" prefHeight="79.0" prefWidth="107.0">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Button>
+    </children>
+</AnchorPane>
