@@ -14,10 +14,22 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
+import static javafx.scene.paint.Color.color;
+import com.google.gson.Gson;
+   
+ 
     
 
 public class FXMLDocumentController {
 
+       Integer[][] arry;
+       
+   // f is flag to know the symbol we play by it
+       public int f =0;
+       
+       
+      Game_logic gl = new Game_logic();
+    
     @FXML
     private ResourceBundle resources;
 
@@ -51,100 +63,243 @@ public class FXMLDocumentController {
     @FXML
     private Button b9;
 
-    @FXML
-     
-   //void handleButtonAction(ActionEvent event) {}
     
-        
+            @FXML 
+
    private void setb1 ()
    {
-   if ("x".equals(b1.getText()))  {
-      b1.setText("o");
+       if (f==1){
+   if ("-1".equals(b1.getText()))  {
+      b1.setText("X");
+      arry[0][0]=1;
+              if ( gl.check_winner(arry)!=-1){
+       System.out.print(  gl.check_winner(arry));
+              }
    }
-     else
-     {     b1.setText("x");
-            }
-       }   
+   
+       }  
+       else if(f==0){
+            if ("-1".equals(b1.getText()))  {
+      b1.setText("O");
+      arry[0][0]=0;
+              if ( gl.check_winner(arry)!=-1){
+   System.out.print(  gl.check_winner(arry));
+              }
+   }
+          }
+       
+   }
        @FXML
 
    private void setb2 ()
    {
-   if ("x".equals(b2.getText()))  {
-      b2.setText("o");}
-     else
-     {     b2.setText("x");
-            }
+    if (f==1){
+   if ("-1".equals(b2.getText()))  {
+      b2.setText("X");}
+           arry[0][1]=1;
+                   if ( gl.check_winner(arry)!=-1){
+   System.out.print(  gl.check_winner(arry));
+                   }
+
        } 
+    else if(f==0){
+            if ("-1".equals(b2.getText()))  {
+      b2.setText("O");
+      arry[0][1]=0;
+              if ( gl.check_winner(arry)!=-1){
+   System.out.print(  gl.check_winner(arry));
+              }
+   }
+          }
+
+   }
     @FXML
    
    private void setb3 ()
    {
-   if ("x".equals(b3.getText()))  {
-      b3.setText("o");}
-     else
-     {     b3.setText("x");
-            }
+   if (f==1){
+   if ("-1".equals(b3.getText()))  {
+      b3.setText("x");
+                 arry[0][2]=1;
+     if ( gl.check_winner(arry)!=-1){
+   System.out.print(  gl.check_winner(arry));
+     }
+
+   }
+   }
+   else if(f==0){
+            if ("-1".equals(b3.getText()))  {
+      b3.setText("O");
+      arry[0][2]=0;
+              if ( gl.check_winner(arry)!=-1){
+   System.out.print(  gl.check_winner(arry));
+              }
+   }
+          }
+
        }
        @FXML
 
    private void setb4 ()
    {
-   if ("x".equals(b4.getText()))  {
-      b4.setText("o");}
-     else
-     {     b4.setText("x");
-            }
+    if (f==1){
+   if ("-1".equals(b4.getText()))  {
+      b4.setText("X");
+      arry[1][0]=1; 
+              if ( gl.check_winner(arry)!=-1){
+   System.out.print(  gl.check_winner(arry));
+              }
+   }
+    }
+    else if(f==0){
+            if ("-1".equals(b4.getText()))  {
+      b4.setText("O");
+      arry[1][0]=0;
+              if ( gl.check_winner(arry)!=-1){
+   System.out.print(  gl.check_winner(arry));
+              }
+   }
+          }
+
        } 
     @FXML
    
    private void setb5()
    {
-   if ("x".equals(b5.getText()))  {
-      b5.setText("o");}
-     else
-     {     b5.setText("x");
-            }
+           if (f==1){
+   if ("-1".equals(b5.getText()))  {
+      b5.setText("X");
+      arry[1][1]=1;
+              if ( gl.check_winner(arry)!=-1){
+      gl.check_winner(arry);
+              }
+
+   }
+           }
+           else if(f==0){
+            if ("-1".equals(b5.getText()))  {
+      b5.setText("O");
+      arry[1][1]=0;
+              if ( gl.check_winner(arry)!=-1){
+       gl.check_winner(arry);
+              }
+   }
+          }
+
        }
        @FXML
 
    private void setb6 ()
    {
-   if ("x".equals(b6.getText()))  {
-      b6.setText("o");}
-     else
-     {     b6.setText("x");
-            }
+   if (f==1){
+   if ("-1".equals(b6.getText()))  {
+      b6.setText("x");
+       arry[1][2]=1;
+               if ( gl.check_winner(arry)!=-1){
+       gl.check_winner(arry);
+               }
+
+   }
+   }
+   else if(f==0){
+            if ("-1".equals(b6.getText()))  {
+      b6.setText("O");
+      arry[1][2]=0;
+              if ( gl.check_winner(arry)!=-1){
+      gl.check_winner(arry);
+              }
+   }
+          }
+
        }  
        @FXML
 
    private void setb7 ()
    {
-   if ("x".equals(b7.getText()))  {
-      b7.setText("o");}
-     else
-     {     b7.setText("x");
-            }
-       }
+   if (f==1){
+   if ("-1".equals(b7.getText()))  {
+      b7.setText("x");
+      arry[2][0]=1;
+              if( gl.check_winner(arry)!=-1){
+   System.out.print(  gl.check_winner(arry));
+
+   }}
+   }
+   else if(f==0){
+            if ("-1".equals(b7.getText()))  {
+      b7.setText("O");
+      arry[2][0]=0;
+              if ( gl.check_winner(arry)!=-1){
+   System.out.print(  gl.check_winner(arry));
+              }
+   }
+          }
+   }
        @FXML
 
    private void setb8 ()
    {
-   if ("x".equals(b8.getText()))  {
-      b8.setText("o");}
-     else
-     {     b8.setText("x");
-            }
-       } 
+                  if (f==1){
+   if ("-1".equals(b8.getText()))  {
+      b8.setText("X");
+   
+              arry[2][1]=1;
+    if( gl.check_winner(arry)!=-1){
+   System.out.print(  gl.check_winner(arry));
+
+                      }
+   }
+                  }
+   else if(f==0){
+            if ("-1".equals(b8.getText()))  {
+      b8.setText("O");
+      arry[2][1]=0;
+             if ( gl.check_winner(arry)!=-1){
+                  
+   System.out.print(  gl.check_winner(arry));
+                  }
+
+   }
+          }
+   }
     @FXML
    
    private void setb9 ()
    {
-   if ("x".equals(b9.getText()))  {
-      b9.setText("o");}
-     else
-     {     b9.setText("x");
-            }
-       }    
+                  if (f==1){
+   if ("-1".equals(b9.getText()))  {
+      b9.setText("x");
+         arry[2][2]=1;
+        gl.check_winner(arry);
+        if ( gl.check_winner(arry)!=-1){
+   System.out.print(  gl.check_winner(arry));
+        }
+
+   }
+                  }
+   else if(f==0){
+            if ("-1".equals(b9.getText()))  {
+      b9.setText("O");
+      arry[2][2]=0;
+              if ( gl.check_winner(arry)!=-1){
+   System.out.print(  gl.check_winner(arry));
+              }
+   }
+          }}
+   
+
+ 
+   
+   
+   
+ 
+  
+  
+ 
+   
+   
+   
+   
    
    
 
@@ -162,9 +317,32 @@ public class FXMLDocumentController {
 
     }
     
-  
-    
+        @FXML
+Integer [][] initiat_game(){
+Integer [][]arr = {{-1,-1,-1},{-1,-1,-1},{-1,-1,-1}};
+return arr;}
+
+String convert_to_gson(data x,String type){
+Gson g=new Gson();
+x.type=type;
+String message=g.toJson(x);
+
+return message;
+}
+public void iniate ()
+{
+arry=initiat_game();
+b1.setText(String.valueOf(arry[0][0]));
+b2.setText(String.valueOf(arry[0][1]));
+b3.setText(String.valueOf(arry[0][2]));
+b4.setText(String.valueOf(arry[1][0]));
+b5.setText(String.valueOf(arry[1][1]));
+b6.setText(String.valueOf(arry[1][2]));
+b7.setText(String.valueOf(arry[2][0]));
+b8.setText(String.valueOf(arry[2][1]));
+b9.setText(String.valueOf(arry[2][2]));
+
+
 }
 
-    
-
+}

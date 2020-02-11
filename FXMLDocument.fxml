@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="381.0" prefWidth="506.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="tictoef.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="381.0" prefWidth="616.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tictoef.FXMLDocumentController">
     <children>
       <Button fx:id="b1" layoutX="53.0" layoutY="35.0" mnemonicParsing="false" onAction="#setb1" prefHeight="88.0" prefWidth="107.0" textFill="#3c3737">
          <font>
@@ -46,10 +46,11 @@
             <Font size="27.0" />
          </font>
       </Button>
-      <Button fx:id="b9" layoutX="283.0" layoutY="209.0" mnemonicParsing="false" onAction="#setb9" onDragExited="#setb8" prefHeight="79.0" prefWidth="107.0">
+      <Button fx:id="b9" layoutX="283.0" layoutY="209.0" mnemonicParsing="false" onAction="#setb9" prefHeight="79.0" prefWidth="107.0">
          <font>
             <Font size="27.0" />
          </font>
       </Button>
+      <Button fx:id="init" layoutX="474.0" layoutY="153.0" mnemonicParsing="false" onAction="#iniate" prefHeight="107.0" prefWidth="80.0" text="initiate" />
     </children>
 </AnchorPane>
