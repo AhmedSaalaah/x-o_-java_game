@@ -1,0 +1,11 @@
+public class data {
+    String type;
+    Integer[][] array;
+    String user_id;
+    String password;
+    String email;
+    Integer who_win;
+    Integer turn_who;
+    Integer who_x;
+    Integer sucess;
+}
