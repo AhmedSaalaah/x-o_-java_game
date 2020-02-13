@@ -3,8 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-    package tictoef;
+ package tictoef;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,6 +15,8 @@ import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
 import static javafx.scene.paint.Color.color;
 import com.google.gson.Gson;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType; 
    
  
     
@@ -69,7 +70,7 @@ public class FXMLDocumentController {
    private void setb1 ()
    {
        if (f==1){
-   if ("-1".equals(b1.getText()))  {
+   if ("".equals(b1.getText()))  {
       b1.setText("X");
       arry[0][0]=1;
               if ( gl.check_winner(arry)!=-1){
@@ -79,7 +80,7 @@ public class FXMLDocumentController {
    
        }  
        else if(f==0){
-            if ("-1".equals(b1.getText()))  {
+            if ("".equals(b1.getText()))  {
       b1.setText("O");
       arry[0][0]=0;
               if ( gl.check_winner(arry)!=-1){
@@ -94,7 +95,7 @@ public class FXMLDocumentController {
    private void setb2 ()
    {
     if (f==1){
-   if ("-1".equals(b2.getText()))  {
+   if ("".equals(b2.getText()))  {
       b2.setText("X");}
            arry[0][1]=1;
                    if ( gl.check_winner(arry)!=-1){
@@ -103,7 +104,7 @@ public class FXMLDocumentController {
 
        } 
     else if(f==0){
-            if ("-1".equals(b2.getText()))  {
+            if ("".equals(b2.getText()))  {
       b2.setText("O");
       arry[0][1]=0;
               if ( gl.check_winner(arry)!=-1){
@@ -118,7 +119,7 @@ public class FXMLDocumentController {
    private void setb3 ()
    {
    if (f==1){
-   if ("-1".equals(b3.getText()))  {
+   if ("".equals(b3.getText()))  {
       b3.setText("x");
                  arry[0][2]=1;
      if ( gl.check_winner(arry)!=-1){
@@ -128,7 +129,7 @@ public class FXMLDocumentController {
    }
    }
    else if(f==0){
-            if ("-1".equals(b3.getText()))  {
+            if ("".equals(b3.getText()))  {
       b3.setText("O");
       arry[0][2]=0;
               if ( gl.check_winner(arry)!=-1){
@@ -143,7 +144,7 @@ public class FXMLDocumentController {
    private void setb4 ()
    {
     if (f==1){
-   if ("-1".equals(b4.getText()))  {
+   if ("".equals(b4.getText()))  {
       b4.setText("X");
       arry[1][0]=1; 
               if ( gl.check_winner(arry)!=-1){
@@ -152,7 +153,7 @@ public class FXMLDocumentController {
    }
     }
     else if(f==0){
-            if ("-1".equals(b4.getText()))  {
+            if ("".equals(b4.getText()))  {
       b4.setText("O");
       arry[1][0]=0;
               if ( gl.check_winner(arry)!=-1){
@@ -167,7 +168,7 @@ public class FXMLDocumentController {
    private void setb5()
    {
            if (f==1){
-   if ("-1".equals(b5.getText()))  {
+   if ("".equals(b5.getText()))  {
       b5.setText("X");
       arry[1][1]=1;
               if ( gl.check_winner(arry)!=-1){
@@ -177,7 +178,7 @@ public class FXMLDocumentController {
    }
            }
            else if(f==0){
-            if ("-1".equals(b5.getText()))  {
+            if ("".equals(b5.getText()))  {
       b5.setText("O");
       arry[1][1]=0;
               if ( gl.check_winner(arry)!=-1){
@@ -192,7 +193,7 @@ public class FXMLDocumentController {
    private void setb6 ()
    {
    if (f==1){
-   if ("-1".equals(b6.getText()))  {
+   if ("".equals(b6.getText()))  {
       b6.setText("x");
        arry[1][2]=1;
                if ( gl.check_winner(arry)!=-1){
@@ -202,7 +203,7 @@ public class FXMLDocumentController {
    }
    }
    else if(f==0){
-            if ("-1".equals(b6.getText()))  {
+            if ("".equals(b6.getText()))  {
       b6.setText("O");
       arry[1][2]=0;
               if ( gl.check_winner(arry)!=-1){
@@ -217,7 +218,7 @@ public class FXMLDocumentController {
    private void setb7 ()
    {
    if (f==1){
-   if ("-1".equals(b7.getText()))  {
+   if ("".equals(b7.getText()))  {
       b7.setText("x");
       arry[2][0]=1;
               if( gl.check_winner(arry)!=-1){
@@ -226,7 +227,7 @@ public class FXMLDocumentController {
    }}
    }
    else if(f==0){
-            if ("-1".equals(b7.getText()))  {
+            if ("".equals(b7.getText()))  {
       b7.setText("O");
       arry[2][0]=0;
               if ( gl.check_winner(arry)!=-1){
@@ -240,7 +241,7 @@ public class FXMLDocumentController {
    private void setb8 ()
    {
                   if (f==1){
-   if ("-1".equals(b8.getText()))  {
+   if ("".equals(b8.getText()))  {
       b8.setText("X");
    
               arry[2][1]=1;
@@ -251,7 +252,7 @@ public class FXMLDocumentController {
    }
                   }
    else if(f==0){
-            if ("-1".equals(b8.getText()))  {
+            if ("".equals(b8.getText()))  {
       b8.setText("O");
       arry[2][1]=0;
              if ( gl.check_winner(arry)!=-1){
@@ -267,7 +268,7 @@ public class FXMLDocumentController {
    private void setb9 ()
    {
                   if (f==1){
-   if ("-1".equals(b9.getText()))  {
+   if ("".equals(b9.getText()))  {
       b9.setText("x");
          arry[2][2]=1;
         gl.check_winner(arry);
@@ -278,7 +279,7 @@ public class FXMLDocumentController {
    }
                   }
    else if(f==0){
-            if ("-1".equals(b9.getText()))  {
+            if ("".equals(b9.getText()))  {
       b9.setText("O");
       arry[2][2]=0;
               if ( gl.check_winner(arry)!=-1){
@@ -288,6 +289,14 @@ public class FXMLDocumentController {
           }}
    
 
+     @FXML
+     public void exit ()
+     {
+              Alert a = new Alert(AlertType.WARNING); 
+              a.setContentText("are you sure you want to exit?");
+              a.show();
+              
+     }
  
    
    
@@ -332,7 +341,7 @@ return message;
 public void iniate ()
 {
 arry=initiat_game();
-b1.setText(String.valueOf(arry[0][0]));
+/*b1.setText(String.valueOf(arry[0][0]));
 b2.setText(String.valueOf(arry[0][1]));
 b3.setText(String.valueOf(arry[0][2]));
 b4.setText(String.valueOf(arry[1][0]));
@@ -340,7 +349,7 @@ b5.setText(String.valueOf(arry[1][1]));
 b6.setText(String.valueOf(arry[1][2]));
 b7.setText(String.valueOf(arry[2][0]));
 b8.setText(String.valueOf(arry[2][1]));
-b9.setText(String.valueOf(arry[2][2]));
+b9.setText(String.valueOf(arry[2][2]));*/
 
 
 }
