@@ -8,6 +8,6 @@
       <Button fx:id="oneplayer" layoutX="168.0" layoutY="74.0" mnemonicParsing="false" onAction="#handlButtonAction" prefHeight="40.0" prefWidth="235.0" text="One player" />
       <Button fx:id="setting" layoutX="170.0" layoutY="210.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="235.0" text="Setting" />
       <Button fx:id="exit" layoutX="171.0" layoutY="287.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="235.0" text="Exit" />
-      <Button fx:id="twoplayer" layoutX="170.0" layoutY="140.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="235.0" text="Two player" />
+      <Button fx:id="twoplayer" layoutX="170.0" layoutY="140.0" mnemonicParsing="false" onAction="#handlButtonAction1" prefHeight="40.0" prefWidth="235.0" text="Two player" />
    </children>
 </Pane>

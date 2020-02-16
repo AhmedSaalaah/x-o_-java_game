@@ -9,12 +9,12 @@
 
 <Pane id="  AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="402.0" prefWidth="603.0" style="-fx-background-color: #23395d;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tictoef.FirstsceneController">
    <children>
-      <TextField layoutX="287.0" layoutY="127.0" prefHeight="44.0" prefWidth="201.0" promptText="user name">
+      <TextField fx:id="username" layoutX="287.0" layoutY="127.0" onAction="#handlButtonAction1" prefHeight="44.0" prefWidth="201.0" promptText="user name">
          <font>
             <Font size="20.0" />
          </font>
       </TextField>
-      <PasswordField layoutX="287.0" layoutY="186.0" prefHeight="41.0" prefWidth="201.0" promptText="password">
+      <PasswordField fx:id="password" layoutX="287.0" layoutY="186.0" onAction="#handlButtonAction1" prefHeight="41.0" prefWidth="201.0" promptText="password">
          <font>
             <Font size="18.0" />
          </font>
@@ -39,5 +39,10 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
+      <TextField layoutX="181.0" layoutY="14.0" prefHeight="68.0" prefWidth="212.0" promptText="Tic_Tac_Toe" text="Tic_Tac_Toe">
+         <font>
+            <Font name="System Italic" size="31.0" />
+         </font>
+      </TextField>
    </children>
 </Pane>
