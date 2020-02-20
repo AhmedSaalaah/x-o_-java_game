@@ -15,6 +15,11 @@ import javafx.fxml.Initializable;
  * @author Acer
  */
 public class ServersceneController implements Initializable {
+@FXML
+    private Button off;
+
+    @FXML
+    private Button on;
 
     /**
      * Initializes the controller class.
