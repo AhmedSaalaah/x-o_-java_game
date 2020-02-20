@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package tictoef;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -24,7 +23,7 @@ import javafx.stage.Stage;
  *
  * @author marwa
  */
-public class HomepageController implements Initializable {
+public class LevelofOneplayerController implements Initializable {
  
     /**
      * Initializes the controller class.
@@ -34,40 +33,27 @@ public class HomepageController implements Initializable {
 
     @FXML
     private URL location;
+ @FXML
+    private Button hard;
 
     @FXML
-    private Button oneplayer;
+    private Button easy;
 
-    @FXML
-    private Button setting;
-
-    @FXML
-    private Button exit;
-
-    @FXML
-    private Button twoplayer;
-    
-        @FXML
-    private Label lab1;
+   
     
     @FXML
     void initialize() {
-        assert oneplayer != null : "fx:id=\"oneplayer\" was not injected: check your FXML file 'homepage.fxml'.";
-        assert setting != null : "fx:id=\"setting\" was not injected: check your FXML file 'homepage.fxml'.";
-        assert exit != null : "fx:id=\"exit\" was not injected: check your FXML file 'homepage.fxml'.";
-        assert twoplayer != null : "fx:id=\"twoplayer\" was not injected: check your FXML file 'homepage.fxml'.";
-
+       
+ assert hard != null : "fx:id=\"hard\" was not injected: check your FXML file 'levelof oneplayer.fxml'.";
+        assert easy != null : "fx:id=\"easy\" was not injected: check your FXML file 'levelof oneplayer.fxml'.";
     }    
-   /*   @FXML
-    public void passfun (String text )  {      
-    lab1.setText(text);
-} */
+  
 
      
      @FXML
-      private void handlButtonAction (ActionEvent event) throws  IOException
+      private void sethard (ActionEvent event) throws  IOException
    {
-        Parent home_page_parent = FXMLLoader.load(getClass().getResource("levelofoneplayer.fxml"));
+        Parent home_page_parent = FXMLLoader.load(getClass().getResource("oneplayer.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
            
@@ -77,10 +63,12 @@ public class HomepageController implements Initializable {
        
       
     }
-           @FXML
-         private void handlButtonAction1 (ActionEvent event) throws  IOException
+      
+      
+      @FXML
+      private void seteasy (ActionEvent event) throws  IOException
    {
-        Parent home_page_parent = FXMLLoader.load(getClass().getResource("twoplayer.fxml"));
+        Parent home_page_parent = FXMLLoader.load(getClass().getResource("oneplayer.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
            
@@ -90,20 +78,9 @@ public class HomepageController implements Initializable {
        
       
     }
-    
-    
+
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    } 
-    
-    
-    
-      
-    
+    public void initialize(URL location, ResourceBundle resources) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
-
-
-
-   
-

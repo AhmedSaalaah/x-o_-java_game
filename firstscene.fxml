@@ -29,7 +29,7 @@
             <Font name="Cambria Bold" size="24.0" />
          </font>
       </Label>
-      <Button fx:id="login" layoutX="165.0" layoutY="307.0" mnemonicParsing="false" onAction="#handlButtonAction1" prefHeight="25.0" prefWidth="102.0" text="Login in" textFill="#334d79">
+      <Button fx:id="login" layoutX="165.0" layoutY="307.0" mnemonicParsing="false" onAction="#handlButtonAction1" prefHeight="25.0" prefWidth="102.0" text="Login " textFill="#334d79">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -44,5 +44,7 @@
             <Font name="System Italic" size="31.0" />
          </font>
       </TextField>
+      <TextField disable="true" layoutX="180.0" layoutY="241.0" opacity="0.91" prefHeight="25.0" prefWidth="201.0" promptText="This user name is already used" text="This user name is already used" visible="false" />
+      <TextField layoutX="174.0" layoutY="266.0" prefHeight="25.0" prefWidth="212.0" text="The username or password is invalid" visible="false" />
    </children>
 </Pane>

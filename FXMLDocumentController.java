@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
  package tictoef;
 
 import java.net.URL;
@@ -15,6 +11,8 @@ import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
 import static javafx.scene.paint.Color.color;
 import com.google.gson.Gson;
+import java.io.DataInputStream;
+import java.io.PrintStream;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType; 
    
@@ -22,20 +20,93 @@ import javafx.scene.control.Alert.AlertType;
     
 
 public class FXMLDocumentController {
+    public static Integer[][] arry={{2,2,2},{2,2,2},{2,2,2}};
+    String my_name ="marwa";
+    String opposit_name="mohamed";
+    Gson g=new Gson();
+    data d=new data();
+    public static DataInputStream dis;
+    public static PrintStream ps;
+    
+    void get_socket(DataInputStream diss,PrintStream pss){
+    ps=pss;
+    dis=diss;}
+    
+    
+    
+    void get_name(String my,String opposit){
+    my_name=my;
+    opposit=opposit_name;
+   }
+    @FXML
+    private Button init;
+    @FXML
+    private Button init1;
+    @FXML
+    private Button init2;
+    
+    
+   
+    
+    
+    
+    void update_board(Integer[][] x){
+        if(x[0][0]==0){
+    b1.setText("o");}
+        if(x[0][0]==1){
+        b1.setText("x");
+        }
+           if(x[0][1]==0){
+    b1.setText("o");}
+        if(x[0][1]==1){
+        b1.setText("x");
+        }
+       if(x[0][2]==0){
+    b1.setText("o");}
+        if(x[0][2]==1){
+        b1.setText("x");
+        }
+           if(x[1][0]==0){
+    b1.setText("o");}
+        if(x[1][0]==1){
+        b1.setText("x");
+        }
+           if(x[1][1]==0){
+    b1.setText("o");}
+        if(x[1][1]==1){
+        b1.setText("x");
+        }
+           if(x[1][2]==0){
+    b1.setText("o");}
+        if(x[1][2]==1){
+        b1.setText("x");
+        }
+           if(x[2][0]==0){
+    b1.setText("o");}
+        if(x[2][0]==1){
+        b1.setText("x");
+        }
+           if(x[2][1]==0){
+    b1.setText("o");}
+        if(x[2][1]==1){
+        b1.setText("x");
+        }
+           if(x[2][2]==0){
+    b1.setText("o");}
+        if(x[2][2]==1){
+        b1.setText("x");
+        }
+    
+    }
 
-       Integer[][] arry;
+//       Integer[][] arry;
        
    // f is flag to know the symbol we play by it
-       public int f =0;
+       public int f =1;
        
        
-      Game_logic gl = new Game_logic();
+    Game_logic gl = new Game_logic();
     
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
 
     @FXML
     private Button b1;
@@ -73,6 +144,8 @@ public class FXMLDocumentController {
    if ("".equals(b1.getText()))  {
       b1.setText("X");
       arry[0][0]=1;
+      d.array[0][0]=1;
+
               if ( gl.check_winner(arry)!=-1){
        System.out.print(  gl.check_winner(arry));
               }
@@ -80,14 +153,22 @@ public class FXMLDocumentController {
    
        }  
        else if(f==0){
-            if ("".equals(b1.getText()))  {
+      if ("".equals(b1.getText()))  {
       b1.setText("O");
       arry[0][0]=0;
+      d.array[0][0]=0;
+
               if ( gl.check_winner(arry)!=-1){
    System.out.print(  gl.check_winner(arry));
               }
    }
           }
+       d.type="update";
+       d.opposit=opposit_name;
+       ps.println(g.toJson(d));
+       
+       
+       
        
    }
        @FXML
@@ -98,7 +179,9 @@ public class FXMLDocumentController {
    if ("".equals(b2.getText()))  {
       b2.setText("X");}
            arry[0][1]=1;
-                   if ( gl.check_winner(arry)!=-1){
+           d.array[0][1]=1;
+
+   if ( gl.check_winner(arry)!=-1){
    System.out.print(  gl.check_winner(arry));
                    }
 
@@ -107,11 +190,18 @@ public class FXMLDocumentController {
             if ("".equals(b2.getText()))  {
       b2.setText("O");
       arry[0][1]=0;
+      d.array[0][1]=0;
+
               if ( gl.check_winner(arry)!=-1){
    System.out.print(  gl.check_winner(arry));
               }
    }
           }
+           d.type="update";
+           d.opposit=opposit_name;
+           ps.println(g.toJson(d));
+
+
 
    }
     @FXML
@@ -122,6 +212,7 @@ public class FXMLDocumentController {
    if ("".equals(b3.getText()))  {
       b3.setText("x");
                  arry[0][2]=1;
+              d.array[0][2]=1;
      if ( gl.check_winner(arry)!=-1){
    System.out.print(  gl.check_winner(arry));
      }
@@ -132,11 +223,17 @@ public class FXMLDocumentController {
             if ("".equals(b3.getText()))  {
       b3.setText("O");
       arry[0][2]=0;
+       d.array[0][2]=0;
               if ( gl.check_winner(arry)!=-1){
    System.out.print(  gl.check_winner(arry));
               }
    }
           }
+          d.type="update";
+                 d.opposit=opposit_name;
+          System.out.println(g.toJson(d));
+          ps.println(g.toJson(d));
+
 
        }
        @FXML
@@ -147,7 +244,8 @@ public class FXMLDocumentController {
    if ("".equals(b4.getText()))  {
       b4.setText("X");
       arry[1][0]=1; 
-              if ( gl.check_winner(arry)!=-1){
+      d.array[1][0]=1;
+   if ( gl.check_winner(arry)!=-1){
    System.out.print(  gl.check_winner(arry));
               }
    }
@@ -156,11 +254,18 @@ public class FXMLDocumentController {
             if ("".equals(b4.getText()))  {
       b4.setText("O");
       arry[1][0]=0;
+      d.array[1][0]=0;
+
               if ( gl.check_winner(arry)!=-1){
    System.out.print(  gl.check_winner(arry));
               }
    }
           }
+           d.type="update";
+                  d.opposit=opposit_name;
+
+                  ps.println(g.toJson(d));
+
 
        } 
     @FXML
@@ -181,11 +286,18 @@ public class FXMLDocumentController {
             if ("".equals(b5.getText()))  {
       b5.setText("O");
       arry[1][1]=0;
+      d.array[1][1]=0;
               if ( gl.check_winner(arry)!=-1){
        gl.check_winner(arry);
               }
    }
           }
+                  d.type="update";
+                         d.opposit=opposit_name;
+
+                         ps.println(g.toJson(d));
+
+
 
        }
        @FXML
@@ -196,6 +308,7 @@ public class FXMLDocumentController {
    if ("".equals(b6.getText()))  {
       b6.setText("x");
        arry[1][2]=1;
+       d.array[1][2]=1;
                if ( gl.check_winner(arry)!=-1){
        gl.check_winner(arry);
                }
@@ -206,11 +319,17 @@ public class FXMLDocumentController {
             if ("".equals(b6.getText()))  {
       b6.setText("O");
       arry[1][2]=0;
+      d.array[1][2]=0;
               if ( gl.check_winner(arry)!=-1){
       gl.check_winner(arry);
               }
    }
           }
+          d.type="update";
+                 d.opposit=opposit_name;
+
+           ps.println(g.toJson(d));
+
 
        }  
        @FXML
@@ -221,6 +340,7 @@ public class FXMLDocumentController {
    if ("".equals(b7.getText()))  {
       b7.setText("x");
       arry[2][0]=1;
+      d.array[2][0]=1;
               if( gl.check_winner(arry)!=-1){
    System.out.print(  gl.check_winner(arry));
 
@@ -230,11 +350,17 @@ public class FXMLDocumentController {
             if ("".equals(b7.getText()))  {
       b7.setText("O");
       arry[2][0]=0;
+      d.array[2][0]=0;
               if ( gl.check_winner(arry)!=-1){
    System.out.print(  gl.check_winner(arry));
               }
    }
           }
+          d.type="update";
+          d.opposit=opposit_name;
+           ps.println(g.toJson(d));
+
+
    }
        @FXML
 
@@ -262,6 +388,11 @@ public class FXMLDocumentController {
 
    }
           }
+                         d.type="update";
+                         d.opposit=opposit_name;
+                        ps.println(g.toJson(d));
+
+
    }
     @FXML
    
@@ -286,10 +417,13 @@ public class FXMLDocumentController {
    System.out.print(  gl.check_winner(arry));
               }
    }
-          }}
+          }       d.type="update";
+                 d.opposit=opposit_name;
+                 ps.println(g.toJson(d));
+
+}
    
 
-     @FXML
      public void exit ()
      {
               Alert a = new Alert(AlertType.WARNING); 
@@ -312,7 +446,6 @@ public class FXMLDocumentController {
    
    
 
-    @FXML
     void initialize() {
         assert b1 != null : "fx:id=\"b1\" was not injected: check your FXML file 'FXMLDocument.fxml'.";
         assert b4 != null : "fx:id=\"b4\" was not injected: check your FXML file 'FXMLDocument.fxml'.";
@@ -326,8 +459,7 @@ public class FXMLDocumentController {
 
     }
     
-        @FXML
-Integer [][] initiat_game(){
+        Integer [][] initiat_game(){
 Integer [][]arr = {{-1,-1,-1},{-1,-1,-1},{-1,-1,-1}};
 return arr;}
 
@@ -338,7 +470,8 @@ String message=g.toJson(x);
 
 return message;
 }
-public void iniate ()
+    @FXML
+    public void iniate ()
 {
 arry=initiat_game();
 /*b1.setText(String.valueOf(arry[0][0]));
@@ -353,5 +486,7 @@ b9.setText(String.valueOf(arry[2][2]));*/
 
 
 }
+    
+    
 
 }

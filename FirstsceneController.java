@@ -11,6 +11,9 @@ import java.io.DataInputStream;
 import javafx.scene.control.Button;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -54,18 +57,27 @@ public class FirstsceneController {
     }
    
     
+    
+    /*signup button */
       @FXML
       private void handlButtonAction (ActionEvent event) throws  IOException
    {
-      
-       
-        Parent home_page_parent = FXMLLoader.load(getClass().getResource("registeration.fxml"));
-        Scene home_page_scene = new Scene(home_page_parent);
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-           
-                app_stage.hide(); //optional
-                app_stage.setScene(home_page_scene);
-                app_stage.show();  
+     /* FXMLLoader Loader =new FXMLLoader () ;
+       Loader.setLocation(getClass().getResource("homepage.fxml"));  
+       Parent home_page_parent = Loader.load();
+       HomepageController hp =Loader.getController();
+       Scene home_page_scene = new Scene(home_page_parent);
+       Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+       app_stage.hide(); //optional
+       app_stage.setScene(home_page_scene);
+       app_stage.show();*/
+       data d=new data();
+       d.type="signup";
+       d.user_name=username.getText();
+       d.password=password.getText();
+       Gson g=new Gson();
+       String message=g.toJson(d);
+       ps.println(message);  
        
       
     }
@@ -74,31 +86,28 @@ public class FirstsceneController {
        @FXML
       private void handlButtonAction1 (ActionEvent event) throws  IOException
    {
-      
-     
+    
        data d=new data();
-       d.type="login";
-       d.user_name=username.getText();
+       d.type="login";      d.user_name=username.getText();
        d.password=password.getText();
        Gson g=new Gson();
        String message=g.toJson(d);
-       ps.println(message);
+       ps.println(message);  
        
-        if(verified==1)
-       {  
-       FXMLLoader Loader =new FXMLLoader () ;
-       Loader.setLocation(getClass().getResource("homepage.fxml"));  
-       Parent home_page_parent = Loader.load();
-       HomepageController hp =Loader.getController();
-       Scene home_page_scene = new Scene(home_page_parent);
-       Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            app_stage.hide(); //optional
-            app_stage.setScene(home_page_scene);
-            app_stage.show();  
-                
-                
    
-       }
+       
+      }
+       
+       
+           
+       
+       
+       
+       
+          
+      
+   
+       
       
     }
       
@@ -106,4 +115,3 @@ public class FirstsceneController {
   
          
 
-}
