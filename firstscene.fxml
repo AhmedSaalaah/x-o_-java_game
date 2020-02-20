@@ -46,5 +46,7 @@
       </TextField>
       <TextField disable="true" layoutX="180.0" layoutY="241.0" opacity="0.91" prefHeight="25.0" prefWidth="201.0" promptText="This user name is already used" text="This user name is already used" visible="false" />
       <TextField layoutX="174.0" layoutY="266.0" prefHeight="25.0" prefWidth="212.0" text="The username or password is invalid" visible="false" />
+      <Button fx:id="playvoice" layoutX="8.0" layoutY="2.0" mnemonicParsing="false" onAction="#playmusic" prefHeight="25.0" prefWidth="40.0" text="Button" />
+      <Button fx:id="stopvoice" layoutX="8.0" layoutY="27.0" mnemonicParsing="false" onAction="#stopmusic" prefHeight="25.0" prefWidth="40.0" text="Button" />
    </children>
 </Pane>
