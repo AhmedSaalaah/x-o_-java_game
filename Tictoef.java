@@ -31,8 +31,10 @@ public class Tictoef extends Application {
   public static DataInputStream dis;
  public static  PrintStream  ps;
 //public FXMLDocumentController game ;
- public int fe =1;
+ public int  setalert=0;  //flag to set alerm in not correct login
 FXMLDocumentController FX;
+FXMLDocumentController FS;
+
     @Override
   public  void start(Stage stage) throws IOException {
          FXMLLoader Loader =new FXMLLoader () ;
@@ -41,8 +43,8 @@ FXMLDocumentController FX;
          Loader.setLocation(getClass().getResource("firstscene.fxml"));  
          Parent root = Loader.load();
          Parent root_1 = Loader_game.load();
-         FirstsceneController FS =Loader.getController();
-         FXMLDocumentController FX =Loader_game.getController();        
+        FirstsceneController FS =Loader.getController();
+        FXMLDocumentController FX =Loader_game.getController();        
          Scene scene_1 = new Scene(root_1);
          Scene scene = new Scene(root);
          stage.setScene(scene);
@@ -55,10 +57,11 @@ FXMLDocumentController FX;
 //         FX.get_socket(dis, ps);
 
         
-       
-         
-         
-       
+     if (setalert==1){
+         FS.setalert();
+     } 
+     
+     
       new Thread(() -> {
         while(true){
             try {
@@ -87,6 +90,8 @@ FXMLDocumentController FX;
   if(p2.type.equals("inviteaccept")){
     set_names(p2.opposit, p2.user_name);}
 
+  
+  
   if (p2.type.equals("login")){
   if (p2.sucess==1){
       Platform.runLater(() -> {
@@ -107,8 +112,11 @@ FXMLDocumentController FX;
                
                 
                 }
-                
-                
+ 
+  /******function to show alert message if username or password is correct*/
+  else if (p2.sucess==0){
+    setalert=1;
+             }
                 }
   }
   

@@ -8,38 +8,46 @@
 
 import com.google.gson.Gson;
 import java.io.DataInputStream;
+import java.io.File;
 import javafx.scene.control.Button;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
     
 
 public class FirstsceneController {
+    /*****music***/
+   String path ="C:\\Users\\Acer\\Desktop\\tictoefclient2\\src\\tictoef\\Goofy-Mischief.mp3";
+   Media media =new Media (new File (path).toURI().toString());
+   MediaPlayer mediaplayer= new MediaPlayer (media);
+   /**** music***/
+    
     public DataInputStream dis;
     public PrintStream ps;
     void get_socket(DataInputStream diss,PrintStream pss){
     ps=pss;
     dis=diss;}
-
     
-    //flag shows that the  login operation success 
-    //this flag come from server and data base
-  public  int verified=1;
-  Tictoef tf = new Tictoef ();
-
     
+    void setalert()
+     {
+    Alert al =new Alert(Alert.AlertType.ERROR);
+    al.setTitle("error");
+    al.setContentText("The username or password is not correct");
+    al.showAndWait();
+     }
+    
+    
+    
+    
+ 
       @FXML
     private TextField username;
 
@@ -47,6 +55,13 @@ public class FirstsceneController {
     private PasswordField password;
     @FXML
     private Button signup;
+    
+     @FXML
+    private Button playvoice;
+
+    @FXML
+    private Button stopvoice;
+
     
     
 
@@ -62,15 +77,7 @@ public class FirstsceneController {
       @FXML
       private void handlButtonAction (ActionEvent event) throws  IOException
    {
-     /* FXMLLoader Loader =new FXMLLoader () ;
-       Loader.setLocation(getClass().getResource("homepage.fxml"));  
-       Parent home_page_parent = Loader.load();
-       HomepageController hp =Loader.getController();
-       Scene home_page_scene = new Scene(home_page_parent);
-       Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-       app_stage.hide(); //optional
-       app_stage.setScene(home_page_scene);
-       app_stage.show();*/
+     
        data d=new data();
        d.type="signup";
        d.user_name=username.getText();
@@ -97,21 +104,35 @@ public class FirstsceneController {
    
        
       }
-       
-       
-           
-       
-       
-       
-       
-          
+      
+    
+      
+      /*******music *///
+      @FXML
+      
+       private void playmusic (ActionEvent event) throws  IOException
+   {
+    
+       mediaplayer.play();
       
    
        
       
     }
       
+       
+          @FXML
+      
+       private void stopmusic (ActionEvent event) throws  IOException
+   {
+    
+       mediaplayer.pause();
+      
+   
+       
+      
+    }
 
   
-         
+}     
 
