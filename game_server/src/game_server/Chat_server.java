@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package chat_server;
+package game_server;
 import com.google.gson.Gson;
 import java.io.DataInputStream;
 import java.io.IOException;
@@ -20,7 +20,6 @@ import java.sql.Statement;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.json.simple.JSONArray;
 import java.util.HashMap;
 import java.util.Map;
 import javafx.scene.control.Label;
@@ -44,6 +43,7 @@ while(true)
 Socket s = serverSocket.accept();
 new ChatHandler(s);
 }
+
 }}
 //game handler
   class ChatHandler extends Thread
@@ -53,6 +53,7 @@ static Integer i=0;
 String temp_des="player_"+i;
 DataInputStream dis;
 PrintStream ps;
+String my_name;
 //static Vector<ChatHandler> clientsVector=new Vector<ChatHandler>();
 //hash map of all users
 static Map<String, ChatHandler> player_socket = new HashMap<>();
@@ -75,13 +76,25 @@ while(true)
         String string = dis.readLine();
         if(string!=null){
         execute(string);
-        System.out.println("hi");
         }
     } catch (IOException | SQLException | InterruptedException ex) {
-        Logger.getLogger(ChatHandler.class.getName()).log(Level.SEVERE, null, ex);
+        try {
+            player_socket.remove(my_name, this);
+            dis.close();
+        } catch (IOException ex1) {
+            try {
+                player_socket.remove(my_name, this);
+                dis.close();
+                ps.close();
+            } catch (IOException ex2) {
+                player_socket.remove(my_name, this);
+                ps.close();            }
+        }
+        player_socket.remove(my_name, this);
+        ps.close();
     }
 }}
-void execute(String s) throws SQLException, InterruptedException{
+void execute(String s) throws SQLException, InterruptedException, IOException{
 Gson g=new Gson();
 data p2=g.fromJson(s,data.class);
 // sign up
@@ -96,45 +109,59 @@ if (p2.type.equals("update")){
         System.out.println(p2.array[0][1]);
     System.out.println(p2.array[0][2]);
 
-player_socket.get(p2.opposit).ps.println(s);
+    try {
+        player_socket.get(p2.opposit).ps.println(s);
+    } catch (Exception e) {
+        data error=new data();
+        error.type="error can't access to palyer";
+        Gson gson_error= new Gson();
+        ps.println(gson_error.toJson(error));
+//        ps.close();
+//        dis.close();
+//        this.stop();
+    }
+
 }
 //log in
 if (p2.type.equals("login")){
 log_in log=new log_in();
 p2.sucess=log.check_user(p2.user_name,p2.password);
 if(p2.sucess ==1){player_socket.put(p2.user_name, this);
+my_name=p2.user_name;
     data d=new data();
 d.sucess=1;
     player_socket.get(p2.user_name).ps.println(convert_to_gson(d,"login"));
+    sendMessageToAll(player_socket);
      System.out.println("login_sucess");
 }
 else{
     data d=new data();
-    d.sucess=1;
+    d.sucess=0;
     System.out.println(temp);
     ps.println(convert_to_gson(d,"login"));
      System.out.println("login_failed");
 }
 }
 }
-void sendMessageToAll(String x,String user_name)
-{
-//    for(ChatHandler ch: clientsVector)
-//{   
-//ch.ps.println(x);
-//}
-System.out.println(user_name);
-System.out.println(x);
-System.out.println(player_socket);
-player_socket.get(user_name).ps.println(x);
-player_socket.get(user_name).ps.println(x);
-
-
+void sendMessageToAll(Map<String, ChatHandler> online_users){
+     Vector<String> clientsVector=new Vector<String>();
+     data da=new data();
+        da.type="online_players \n";
+    for(String ch: online_users.keySet()){ 
+        clientsVector.add(ch);
+        System.out.println("online"+ch);
+}
+    da.clientsVector=clientsVector;
+    ps.println(convert_to_gson(da,"online_players"));
+//System.out.println(user_name);
+//System.out.println(x);
+//System.out.println(player_socket);
+//player_socket.get(user_name).ps.println(x);
+//player_socket.get(user_name).ps.println(x);
 }
 Integer [][] initiat_game(){
 Integer [][]arr = {{-1,-1,-1},{-1,-1,-1},{-1,-1,-1}};
 return arr;}
-
 String convert_to_gson(data x,String type){
 Gson g=new Gson();
 x.type=type;
