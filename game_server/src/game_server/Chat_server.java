@@ -22,6 +22,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.HashMap;
 import java.util.Map;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
 /**
  *
@@ -98,6 +100,17 @@ void execute(String s) throws SQLException, InterruptedException, IOException{
 Gson g=new Gson();
 data p2=g.fromJson(s,data.class);
 // sign up
+if(p2.type.equals("inviteaccept"))
+{
+    p2.sucess=1;
+    player_socket.get(p2.destination).ps.println(convert_to_gson(p2,"inviteaccept"));
+}
+if(p2.type.equals("invite"))
+{
+    player_socket.get(p2.destination).ps.println(convert_to_gson(p2,"invite"));
+    System.out.println(p2.user_name);
+    System.out.println(p2.destination);
+}
 if (p2.type.equals("signup")){
     //create singup object
     sing_up sign=new sing_up();
@@ -130,6 +143,10 @@ if(p2.sucess ==1){player_socket.put(p2.user_name, this);
 my_name=p2.user_name;
     data d=new data();
 d.sucess=1;
+d.user_name=p2.user_name;
+d.user_name=my_name;
+System.out.println(d.user_name);
+
     player_socket.get(p2.user_name).ps.println(convert_to_gson(d,"login"));
     sendMessageToAll(player_socket);
      System.out.println("login_sucess");
@@ -137,21 +154,25 @@ d.sucess=1;
 else{
     data d=new data();
     d.sucess=0;
-    System.out.println(temp);
     ps.println(convert_to_gson(d,"login"));
      System.out.println("login_failed");
 }
 }
 }
 void sendMessageToAll(Map<String, ChatHandler> online_users){
-     Vector<String> clientsVector=new Vector<String>();
+     Vector<Users> clientsVector = new Vector<Users>();
      data da=new data();
-        da.type="online_players \n";
-    for(String ch: online_users.keySet()){ 
-        clientsVector.add(ch);
+     
+        da.type="online_players";
+for(String ch: online_users.keySet()){ 
+        Users temp=new Users(1,ch);
+        clientsVector.add(temp);
         System.out.println("online"+ch);
 }
-    da.clientsVector=clientsVector;
+da.clientsVector=clientsVector;
+for(String ch: online_users.keySet()){ 
+    player_socket.get(ch).ps.println(convert_to_gson(da,"online_players"));
+}
     ps.println(convert_to_gson(da,"online_players"));
 //System.out.println(user_name);
 //System.out.println(x);
@@ -173,7 +194,7 @@ return message;
 class connect{
     public Connection establish (){
     try{
-Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5544/java", "postgres", "mohamed");
+Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/java", "postgres", "postgres");
             System.out.println("Connection sucess.");
             return connection;
 

@@ -9,21 +9,25 @@ package game_server;
 
 import java.util.Vector;
 
-
-public class data{
+/**
+ *
+ * @author Acer
+ */
+public class data {
     String type;
-    Integer[][] array;
+    Integer[][] array={{-1,-1,-1},{-1,-1,-1},{-1,-1,-1}};
     String user_id;
     String password;
     String email;
     Integer who_win;
-    Integer turn_who;
+    String turn_who;
     Integer who_x;
     Integer sucess;
-    String destination;
     String user_name;
-    String opposit;     
-    Vector<String> clientsVector=new Vector<String>();
+    String destination;
+    String opposit;
+    Vector<Users> clientsVector;
     Integer score;
     String message;
 }
+
