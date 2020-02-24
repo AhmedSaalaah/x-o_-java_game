@@ -10,7 +10,7 @@
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
     <jar href="lib\gson-2.8.2.jar" size="232932" download="eager" />
     <jar href="lib\jmf-2.1.1e.jar" size="1904171" download="eager" />
-    <jar href="tictoef.jar" size="1213970" download="eager" />
+    <jar href="tictoef.jar" size="1213297" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="tictoef" >
     <param name="requiredFXVersion" value="8.0+"/>

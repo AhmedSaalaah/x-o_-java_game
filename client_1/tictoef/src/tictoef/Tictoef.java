@@ -43,7 +43,7 @@ public static  PrintStream  ps;
 public  FXMLDocumentController FX;
 
 private static Vector<Users> online;
-private static String userName;
+public static String userName;
 public static String opponent;
 public static String whoX;
     @Override

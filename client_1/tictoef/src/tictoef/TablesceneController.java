@@ -20,12 +20,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-import javafx.application.Application;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.Group;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -89,29 +84,19 @@ public class TablesceneController implements Initializable {
     {
         player = table.getSelectionModel().getSelectedItem();
     }
-    
     public static Users getPlayer()
     {
         return player;
     }
-    
-        
-
-
     @FXML
    private void settwoplayer (ActionEvent event) throws  IOException
    {
      Parent home_page_parent1 = FXMLLoader.load(getClass().getResource("twoplayer.fxml"));
         Scene home_page_scene1 = new Scene(home_page_parent1);
         Stage app_stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
-           
                 app_stage1.hide(); //optional
                 app_stage1.setScene(home_page_scene1);
-                app_stage1.show();  
-       
-   }
-
-   
+                app_stage1.show();  }
      @FXML
    private void invite (ActionEvent event) throws  IOException
            
@@ -120,6 +105,7 @@ public class TablesceneController implements Initializable {
        invitation.user_name = myName;
        invitation.type = "invite";
        invitation.destination = player.getUserName();
+       Tictoef.opponent=player.getUserName();
        Tictoef.whoX = myName;
        Gson temp = new Gson();
        Tictoef main = new Tictoef();

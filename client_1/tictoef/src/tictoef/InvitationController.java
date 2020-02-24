@@ -20,7 +20,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 /**
  * FXML Controller class
  *
@@ -45,6 +44,7 @@ public class InvitationController implements Initializable {
         data acceptance = new data();
         acceptance.type = "inviteaccept";
         acceptance.destination = Tictoef.opponent;
+        Tictoef.whoX= Tictoef.opponent;
         Gson acceptMessege = new Gson();
         psInvitation.println(acceptMessege.toJson(acceptance));
     }

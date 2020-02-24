@@ -14,14 +14,9 @@
           <TableColumn fx:id="score" prefWidth="92.0" text="score" />
         </columns>
       </TableView>
-      <Button fx:id="invite_button" layoutX="308.0" layoutY="320.0" mnemonicParsing="false" onAction="#invite" prefHeight="56.0" prefWidth="90.0" text="Invite">
+      <Button fx:id="invite_button" layoutX="253.0" layoutY="330.0" mnemonicParsing="false" onAction="#invite" prefHeight="56.0" prefWidth="90.0" text="Invite">
          <font>
             <Font size="24.0" />
-         </font>
-      </Button>
-      <Button fx:id="start" layoutX="185.0" layoutY="320.0" mnemonicParsing="false" onAction="#settwoplayer" prefHeight="56.0" prefWidth="90.0" text="Start">
-         <font>
-            <Font size="22.0" />
          </font>
       </Button>
    </children>
