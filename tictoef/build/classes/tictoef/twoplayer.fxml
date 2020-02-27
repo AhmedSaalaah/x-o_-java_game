@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="489.0" prefWidth="626.0" style="-fx-background-color: #23395d;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tictoef.FXMLDocumentController">
+    <children>
+      <Pane fx:id="gameEnd" layoutX="88.0" layoutY="39.0" prefHeight="289.0" prefWidth="265.0" style="-fx-background-color: #23395d;">
+         <children>
+            <Label fx:id="who_win" alignment="CENTER" contentDisplay="CENTER" layoutX="39.0" layoutY="24.0" prefHeight="35.0" prefWidth="187.0" text="Label" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="Play_Again" layoutX="69.0" layoutY="96.0" mnemonicParsing="false" onAction="#game_end" prefHeight="42.0" prefWidth="107.0" text="Play Again">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="13.0" />
+               </font></Button>
+            <Button fx:id="gameEndExit" layoutX="69.0" layoutY="166.0" mnemonicParsing="false" onAction="#goBack" prefHeight="42.0" prefWidth="107.0" text="Return" textFill="#e80c0c">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="13.0" />
+               </font></Button>
+         </children>
+      </Pane>
+      <Pane fx:id="game" prefHeight="381.0" prefWidth="626.0" style="-fx-background-color: #23395d;">
+         <children>
+            <Button fx:id="b1" layoutX="46.0" layoutY="39.0" mnemonicParsing="false" onAction="#setb1" prefHeight="88.0" prefWidth="107.0" textFill="#3c3737">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Button>
+            <Button fx:id="b4" layoutX="46.0" layoutY="141.0" mnemonicParsing="false" onAction="#setb4" prefHeight="88.0" prefWidth="107.0">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Button>
+            <Button fx:id="b7" layoutX="46.0" layoutY="245.0" mnemonicParsing="false" onAction="#setb7" prefHeight="79.0" prefWidth="107.0">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Button>
+            <Button fx:id="b2" layoutX="166.0" layoutY="39.0" mnemonicParsing="false" onAction="#setb2" prefHeight="88.0" prefWidth="114.0">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Button>
+            <Button fx:id="b5" layoutX="166.0" layoutY="141.0" mnemonicParsing="false" onAction="#setb5" prefHeight="88.0" prefWidth="114.0">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Button>
+            <Button fx:id="b8" layoutX="166.0" layoutY="245.0" mnemonicParsing="false" onAction="#setb8" prefHeight="79.0" prefWidth="114.0">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Button>
+            <Button fx:id="b3" layoutX="294.0" layoutY="39.0" mnemonicParsing="false" onAction="#setb3" prefHeight="88.0" prefWidth="107.0">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Button>
+            <Button fx:id="b6" layoutX="294.0" layoutY="141.0" mnemonicParsing="false" onAction="#setb6" prefHeight="88.0" prefWidth="107.0">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Button>
+            <Button fx:id="b9" layoutX="294.0" layoutY="245.0" mnemonicParsing="false" onAction="#setb9" prefHeight="79.0" prefWidth="107.0">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Button>
+            <Button fx:id="back" layoutX="46.0" layoutY="331.0" mnemonicParsing="false" onAction="#goBack" prefHeight="42.0" prefWidth="107.0" text="Back">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="20.0" />
+               </font></Button>
+            <Button fx:id="init2" layoutX="294.0" layoutY="331.0" mnemonicParsing="false" onAction="#exit" prefHeight="42.0" prefWidth="107.0" text="Exit" textFill="#f20707">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="20.0" />
+               </font></Button>
+            <TextArea fx:id="chatArea" editable="false" layoutX="412.0" layoutY="39.0" prefHeight="289.0" prefWidth="200.0">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </TextArea>
+            <Button fx:id="send" defaultButton="true" layoutX="569.0" layoutY="339.0" mnemonicParsing="false" onAction="#send" text="Send" />
+            <TextField fx:id="typingField" layoutX="412.0" layoutY="339.0" />
+         </children>
+      </Pane>
+      <Label layoutX="30.0" layoutY="392.0" prefHeight="42.0" prefWidth="141.0" text="Player Turn">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="25.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="#48a45f" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Label>
+      <TextField fx:id="turn" alignment="CENTER" editable="false" layoutX="30.0" layoutY="434.0" prefHeight="42.0" prefWidth="141.0">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+         </font>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </TextField>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="457.0" layoutY="392.0" prefHeight="42.0" prefWidth="141.0" text="Score">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="25.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#48a45f" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <TextField fx:id="score" alignment="CENTER" editable="false" layoutX="457.0" layoutY="434.0" prefHeight="42.0" prefWidth="141.0">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+         </font>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </TextField>
+    </children>
+</AnchorPane>
